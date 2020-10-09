@@ -135,6 +135,7 @@ document.getElementById("followersURL").addEventListener('click', () => {
         return response.json();
     }).then((response) => {
         const followersUsers = document.getElementById("followersUsers");
+        followersUsers.innerHTML = "";
         // <div class="chip">
         //             <img src="https://avatars2.githubusercontent.com/u/56451511?v=4" alt="Contact Person">
         //             Jane Doe
@@ -164,6 +165,24 @@ document.getElementById("followingURL").addEventListener('click', () => {
     fetch("https://api.github.com/users/" + id + "/following").then(function (response) {
         return response.json();
     }).then((response) => {
+        const followersUsers = document.getElementById("followingUsers");
+        followersUsers.innerHTML = "";
+        // <div class="chip">
+        //             <img src="https://avatars2.githubusercontent.com/u/56451511?v=4" alt="Contact Person">
+        //             Jane Doe
+        //           </div>
+        response.forEach(res=>{
+            const outerElemnt = document.createElement("a");
+            outerElemnt.className = "chip";
+            outerElemnt.href = res.html_url;
+            outerElemnt.target = "_blank";
+            const image = document.createElement("img");
+            image.src = res.avatar_url;
+            image.alt = res.login;
+            outerElemnt.innerText = res.login;
+            outerElemnt.appendChild(image);
+            followersUsers.appendChild(outerElemnt);
+        });
         console.log(response);
     }).catch(function (error) {
         return error;
