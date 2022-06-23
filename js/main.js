@@ -40,7 +40,7 @@ function show(username) {
     loadData(username).then(function (response) {
         if (response.login == null) {
             alert("We can't find this " + username + " Username.\nSo we are showing you Bharat's profile.\nTry to find again");
-            show("bharatagsrwal");
+            show("agarwalbharat");
         }
         document.getElementById("data").setAttribute("data-id", response.login);
         document.getElementById("image").src = response.avatar_url;
