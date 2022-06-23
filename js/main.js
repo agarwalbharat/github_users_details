@@ -1,7 +1,7 @@
 //jshint esversion:6
 
 $(document).ready(function () {
-    show('bharatagsrwal');
+    show('agarwalbharat');
     $('.modal').modal();
     document.getElementById("searchbtn").addEventListener("click", searchUser);
 });
